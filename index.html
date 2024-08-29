@@ -1,0 +1,63 @@
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+
+const perguntas = [
+    {
+        enunciado: "Você acaba de terminar uma partida de um novo jogo de esportes com gráficos ultra-realistas e uma IA que ajusta a dificuldade automaticamente. Qual é a sua reação imediata?",
+        alternativas: [
+            "Isso é incrível!",
+            "Isso é extremamente impressionante!"
+        ]
+    },
+    {
+        enunciado: "Depois do lançamento desse novo jogo, seu professor de educação física decide abordar como as tecnologias de jogos e IA influenciam os esportes. Ele pede que você escreva um trabalho sobre esse impacto. O que você faz?",
+        alternativas: [
+            "Utiliza uma ferramenta de busca na internet com IA para coletar informações e escreve o trabalho de maneira clara e compreensível.",
+            "Escreve o trabalho com base em conversas com colegas, algumas pesquisas na internet e seu próprio conhecimento."
+        ]
+    },
+    {
+        enunciado: "Após concluir o trabalho, o professor promove um debate sobre como a tecnologia e a IA estão moldando o futuro dos jogos e dos esportes. Como você participa do debate?",
+        alternativas: [
+            "Defende que a IA pode trazer novas oportunidades e melhorar estratégias e treinamentos em esportes.",
+            "Expressa preocupações sobre a possibilidade de dependência excessiva da tecnologia e a perda de habilidades pessoais."
+        ]
+    },
+    {
+        enunciado: "No final da discussão, você deve criar uma imagem no computador que ilustre o impacto da IA nos jogos e esportes. Qual a sua abordagem?",
+        alternativas: [
+            "Criar uma imagem usando uma plataforma de design como o Paint.",
+            "Criar uma imagem usando um gerador de imagens baseado em IA."
+        ]
+    },
+    {
+        enunciado: "Você tem um trabalho em grupo sobre a evolução dos jogos eletrônicos para entregar em breve. Uma pessoa do grupo usou uma IA para gerar o conteúdo, mas o resultado está muito semelhante ao do chat. O que você faz?",
+        alternativas: [
+           "Considero que usar o texto gerado pela IA é aceitável e não vejo problema em entregar o trabalho assim.",
+            "Reconheço a importância de revisar o trabalho e adicionar contribuições pessoais para garantir originalidade e qualidade."
+        ]
+    },
+];
+
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta() {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+mostraPergunta();
